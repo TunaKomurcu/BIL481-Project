@@ -4,11 +4,11 @@
 
 - <ins>**Dahil Olan Özellikler**</ins>
 
-    Kullanıcının girdiği parametrelere göre ve tercih ettiği yatırım tercihleri ile maksimum kar miktarını amaçlayan bu doğrultuda öneri verebilmesi önerileri grafik ve görsellere destekleyebilmesi ve sonuçları PDF dosyası olarak sunabilmesi
+    Kullanıcının girdiği parametrelere göre ve tercih ettiği yatırım tercihleri ile maksimum kar miktarını amaçlayan bu doğrultuda öneri verebilmesi önerileri grafik ve görsellere destekleyebilmesi ve sonuçları PDF dosyası olarak sunabilmesi.
 
 - <ins>**Dahil Olmayan Özellikler**</ins>
 
-    Piyasadaki anlık gelişmeleri 
+    Piyasadaki anlık gelişmelerle işlem yapamaz ve ani satım alım işlemlerini gerçekleştiremez.
 
 ## <ins>**Project Organization**</ins>
 
