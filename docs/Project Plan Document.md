@@ -124,4 +124,4 @@
 
   **4**. <ins>**Testing**</ins>: Bu safhada Algoritma kısmına diğerlerinde biraz daha kaynak ayrılacak. Tüm Algoritma ve database uyumu test edilecek ve GUI tasarımı ve sunduğu işlevler kontrol edilecektir
 
-  **5**. **Deployment**</ins>: Bu son safhada database kontrolü ve uyum ve erişim kontrol edildikten sonra ana kaynaklar Algoritma ve GUI üzerine ayrılacaktır. Testing aşamasından sonra son kontroller yapılacak ve program piyasaya sürülecektir.
+  **5**. <ins>**Deployment**</ins>: Bu son safhada database kontrolü ve uyum ve erişim kontrol edildikten sonra ana kaynaklar Algoritma ve GUI üzerine ayrılacaktır. Testing aşamasından sonra son kontroller yapılacak ve program piyasaya sürülecektir.
