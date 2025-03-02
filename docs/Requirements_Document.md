@@ -3,7 +3,6 @@
 # Table of Contents
 
 
-- [Table of Contents](#table-of-contents)
 - [Functional Requirements](#functional-requirements)
 - [Non-Functional Requirements](#non-functional-requirements)
 - [Effort Estimations](#effort-estimations)
