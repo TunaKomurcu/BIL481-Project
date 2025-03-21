@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yatırım Tavsiyesi</title>
+</head>
+<body>
+    <h1>Yatırım Tavsiyesi Sonuçları</h1>
+    <ul>
+        {% for method, (allocation, yield) in results.items() %}
+        <li><strong>{{ method }}</strong>: Tahsis: {{ allocation }}, Getiri: {{ yield }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
