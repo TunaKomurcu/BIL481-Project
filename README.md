@@ -46,7 +46,7 @@ Projeyi çalıştırabilmek için aşağıdaki bileşenlere ihtiyacınız var:
 Terminal veya komut satırında aşağıdaki komutu çalıştırın:
 
 bash:
-git clone https://github.com/kullanici_adiniz/yatirim-tavsiye-botu.git
+git clone [https://github.com/kullanici_adiniz/yatirim-tavsiye-botu.git](https://github.com/TunaKomurcu/BIL481-Project)
 cd yatirim-tavsiye-botu
 
 ### 2. Sanal Ortam Oluşturun(Opsiyonel)
