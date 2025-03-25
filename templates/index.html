@@ -35,6 +35,11 @@
             padding: 10px 20px;
             border-radius: 5px;
         }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +59,12 @@
         
         <button type="submit">Optimizasyonu Başlat</button>
     </form>
+
+    {% if error_message %}
+    <div class="error-message">
+        {{ error_message }}
+    </div>
+    {% endif %}
 
     {% if allocation %}
     <h2>Önerilen Yatırım Dağılımı</h2>
