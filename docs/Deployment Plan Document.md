@@ -43,7 +43,9 @@ Projeyi çalıştırabilmek için aşağıdaki bileşenlere ihtiyacınız var:
 - **pdfkit:** HTML'den PDF oluşturmak için kullanılan kütüphane
 - **wkhtmltopdf:** pdfkit'in çalışabilmesi için gerekli olan bağımsız araç
 
-## Deployement Process
+----------------------------------------------------------------------
+Deployment Process
+----------------------------------------------------------------------
 
 ### 1. Depoyu Klonlayın veya İndirin
 
@@ -115,10 +117,13 @@ Doğru değerler girildiğinde, yatırım dağılımı hesaplanıp grafik üzeri
 PDF Rapor İndirme:
 Hesaplanan sonuçların altında bulunan "PDF Olarak İndir" butonu ile raporu PDF formatında indirebilirsiniz.
 
+----------------------------------------------------------------------
+Configuration Plan
+----------------------------------------------------------------------
 
-----------------------------------------------------------------------
+
 ## Flask Yapılandırması
-----------------------------------------------------------------------
+
 - **Hata Ayıklama Modu:**  
   Uygulamanın geliştirme sürecinde hata ayıklama (debug) modunda çalıştırılması için yapılandırma yapılmıştır:
   ```python
