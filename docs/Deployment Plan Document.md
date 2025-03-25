@@ -8,9 +8,23 @@ Deployment Plan Document
 
 Table of Contents:
 ------------------
-1. Deployment Overview
-2. Deployment Process
-3. Configuration Plan
+1. Task Matrix
+2. Deployment Overview  
+   2.1. Genel Yaklaşım  
+   2.2. Kullanılan Araçlar  
+   2.3. Ortam
+3. Deployment Process  
+   3.1. Depoyu Klonlayın veya İndirin  
+   3.2. Sanal Ortam Oluşturun (Opsiyonel)  
+   3.3. Gerekli Paketleri Yükleyin  
+   3.4. wkhtmltopdf Kurulumu  
+   3.5. Uygulamayı Çalıştırma
+4. Configuration Plan  
+   4.1. Flask Yapılandırması  
+   4.2. pdfkit Konfigürasyonu  
+   4.3. Sanal Ortam Kullanımı  
+   4.4. Ek Yapılandırmalar  
+   4.5. Notlar
 
 ----------------------------------------------------------------------
 Task Matrix
