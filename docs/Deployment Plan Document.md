@@ -163,14 +163,3 @@ Configuration Plan
 
   Performans Ayarları:
   Flask uygulamasının performansını artırmak için, gerekiyorsa multi-threading veya production server (örn. Gunicorn) kullanımı planlanmaktadır.
-
-### Notlar
-
-Kullanıcı Girdisi Doğrulama:
-app.py içindeki validate_inputs fonksiyonu, form verilerinin uygun olup olmadığını kontrol eder ve hatalı girişlerde kullanıcıya hata mesajı sunar.
-
-Optimizasyon:
-logic.py dosyasında yer alan DFS algoritması ile yatırım dağılımı hesaplanır.
-
-PDF Oluşturma:
-PDF rapor oluşturulurken wkhtmltopdf aracının doğru kurulduğundan emin olun.
