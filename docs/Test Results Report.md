@@ -2,11 +2,10 @@
 Test Results Report Document
 ======================================================================
 
-List of Contributors:
-----------------------
-Tuna Kömürcü
-Arda Günaydın
-Mustafa Giray Akın
+## List of Contributors
+- **Tuna Kömürcü**
+- **Arda Günaydın**
+- **Mustafa Giray Akın**
 
 Table of Contents:
 ------------------
