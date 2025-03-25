@@ -5,12 +5,28 @@ Test Results Report Document
 List of Contributors:
 ----------------------
 Tuna Kömürcü
+Arda Günaydın
+Mustafa Giray Akın
 
 Table of Contents:
 ------------------
 1. Test Results Overview
 2. Test Results Analysis
 3. Logs and Outputs
+
+
+# Task Matrix
+
+Aşağıda, test senaryolarının görev takibini gösteren task matrix yer almaktadır:
+
+| **Task ID** | **Görev Açıklaması**                    | **Sorumlu**          | **Başlangıç Tarihi** | **Bitiş Tarihi** | **Durum**            |
+|-------------|-----------------------------------------|----------------------|----------------------|------------------|----------------------|
+| TSK-01     | Yatırım Girdisi Doğrulama Testi         | Tuna Kömürcü         | 2025-03-10           | 2025-03-15       | Tamamlandı (Pass)    |
+| TSK-02     | Yapay Zeka Portföy Analizi Testi        | Arda Günaydın        | 2025-03-10           | 2025-03-16       | Tamamlandı (Pass)    |
+| TSK-03     | Grafiksel Görselleştirme Testi          | Mustafa Giray Akın   | 2025-03-11           | 2025-03-17       | Tamamlandı (Pass)    |
+| TSK-04     | PDF Rapor İndirme Fonksiyonu Testi       | Tuna Kömürcü         | 2025-03-12           | 2025-03-18       | Tamamlandı (Pass)    |
+| TSK-05     | Performans Testi                         | Arda Günaydın        | 2025-03-13           | 2025-03-19       | Tamamlandı (Pass)    |
+
 
 ----------------------------------------------------------------------
 Test Results Overview
