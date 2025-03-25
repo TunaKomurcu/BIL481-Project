@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>Yatırım Tavsiyesi</title>
+    <meta charset="UTF-8">
+    <title>Yatırım Optimizasyon Raporu</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header { text-align: center; margin-bottom: 20px; }
+        .content { margin: 0 auto; width: 80%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #333; }
+        th, td { padding: 10px; text-align: center; }
+    </style>
 </head>
 <body>
-    <h1>Yatırım Tavsiyesi Sonuçları</h1>
-    <ul>
-        {% for method, (allocation, yield) in results.items() %}
-        <li><strong>{{ method }}</strong>: Tahsis: {{ allocation }}, Getiri: {{ yield }}</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Yatırım Optimizasyon Raporu</h1>
+    </header>
+    <div class="content">
+        <p><strong>Toplam Para:</strong> {{ total_money }}</p>
+        <p><strong>Risk Toleransı:</strong> {{ risk_tolerance }}</p>
+        <p><strong>Vade (Ay):</strong> {{ user_vade }}</p>
+        <h2>Önerilen Yatırım Dağılımı</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Yatırım Seçeneği</th>
+                    <th>Dağılım (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for option, percent in zip(options, allocation) %}
+                <tr>
+                    <td>{{ option }}</td>
+                    <td>{{ percent }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Beklenen Getiri: %{{ expected_yield }}</h3>
+    </div>
 </body>
 </html>
