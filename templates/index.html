@@ -2,107 +2,121 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Yatırım Tavsiye Botu</title>
+    <title>Yatırım Optimizasyonu</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "API_KEY",
-        authDomain: "PROJE_ADI.firebaseapp.com",
-        projectId: "PROJE_ID",
-        storageBucket: "PROJE_ADI.appspot.com",
-        messagingSenderId: "SENDER_ID",
-        appId: "APP_ID"
-      };
-      firebase.initializeApp(firebaseConfig);
-      const storage = firebase.storage();
-    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        form {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        form label, form input {
+            display: block;
+            margin: 10px auto;
+        }
+        .pdf-download {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pdf-download a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Yatırım Tavsiye Botu</h1>
-    <form method="post">
+    <h1>Yatırım Optimizasyonu</h1>
+    <form method="POST">
         <label for="total_money">Toplam Para:</label>
-        <input type="number" id="total_money" name="total_money" value="150000" required>
-        <br>
-        <label for="user_risk_tolerance">Risk Toleransı (1-10):</label>
-        <input type="number" id="user_risk_tolerance" name="user_risk_tolerance" value="9" min="1" max="10" required>
-        <br>
-        <label for="user_vade">Vade (1-10):</label>
-        <input type="number" id="user_vade" name="user_vade" value="9" min="1" max="10" required>
-        <br>
-        <button type="submit">Optimizasyonu Çalıştır</button>
+        <input type="number" id="total_money" name="total_money" value="{{ total_money }}" required>
+        
+        <label for="risk_tolerance">Risk Toleransı:</label>
+        <input type="number" id="risk_tolerance" name="risk_tolerance" value="{{ risk_tolerance }}" step="0.1" required>
+        
+        <label for="user_vade">Vade (Ay):</label>
+        <input type="number" id="user_vade" name="user_vade" value="{{ user_vade }}" required>
+        
+        <label for="time_limit_dfs">Botun Düşünme Süresi (saniye):</label>
+        <input type="number" id="time_limit_dfs" name="time_limit_dfs" value="{{ time_limit_dfs }}" step="0.1" required>
+        
+        <button type="submit">Optimizasyonu Başlat</button>
     </form>
-    
-    {% if results %}
-    <h2>Sonuçlar</h2>
-    <div id="results-container">
-        {% for label, result in results.items() %}
-        <div class="result-section">
-            <h3>{{ label }} Sonucu</h3>
-            {% set alloc = result[0] %}
-            {% set yield_val = result[1] %}
-            {% if alloc %}
-            <ul>
-                {% for i in range(alloc|length) %}
-                <li>{{ logic.investment_options[i].name }}: %{{ alloc[i] }}</li>
-                {% endfor %}
-            </ul>
-            <p>Beklenen toplam getiri: %{{ yield_val }}</p>
-            <p>Ağırlıklı Beklenen Vade: {{ logic.calculate_weighted_vade(alloc, logic.investment_options) }}</p>
-            {% else %}
-            <p>Uygun dağılım bulunamadı.</p>
-            {% endif %}
-        </div>
-        {% endfor %}
-    </div>
-    
-    <canvas id="resultChart" width="400" height="200"></canvas>
-    <br>
-    <button id="downloadPDF">PDF Raporunu İndir</button>
-    
-    <script>
-      const ctx = document.getElementById('resultChart').getContext('2d');
-      const labels = [
-        "{{ logic.investment_options|map(attribute='name')|join('", "')|safe }}"
-      ];
 
-      const data = {
-          labels: labels,
-          datasets: [{
-              label: 'Yüzde Dağılımı (DFS)',
-              data: JSON.parse("{{ results['Limited DFS'][0]|tojson|safe }}"),
-              backgroundColor: 'rgba(54, 162, 235, 0.5)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1
-          }]
-      };
-      const config = {
-          type: 'bar',
-          data: data,
-          options: { scales: { y: { beginAtZero: true, max: 100 } } }
-      };
-      const resultChart = new Chart(ctx, config);
-      
-      document.getElementById('downloadPDF').addEventListener('click', async function() {
-          const { jsPDF } = window.jspdf;
-          const doc = new jsPDF();
-          doc.text("Yatırım Tavsiye Raporu", 10, 10);
-          const canvas = document.getElementById('resultChart');
-          const imgData = canvas.toDataURL('image/png');
-          doc.addImage(imgData, 'PNG', 10, 20, 180, 100);
-          const pdfBlob = doc.output('blob');
-          const storageRef = storage.ref();
-          const pdfRef = storageRef.child('pdf_reports/rapor_' + Date.now() + '.pdf');
-          pdfRef.put(pdfBlob).then((snapshot) => {
-              alert('PDF bulut ortamına yüklendi!');
-          }).catch((error) => {
-              console.error('PDF yüklemede hata:', error);
-          });
-          doc.save('yatirim_raporu.pdf');
-      });
+    {% if allocation %}
+    <h2>Önerilen Yatırım Dağılımı</h2>
+    <div class="chart-container">
+        <canvas id="allocationChart"></canvas>
+    </div>
+    <script>
+        const ctx = document.getElementById('allocationChart').getContext('2d');
+        const data = {
+            labels: JSON.parse('{{ options | tojson | safe }}'),
+            datasets: [{
+                label: 'Yatırım Yüzdeleri',
+                data: JSON.parse('{{ allocation | tojson | safe }}'),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(199, 199, 199, 0.6)',
+                    'rgba(83, 102, 255, 0.6)',
+                    'rgba(255, 99, 255, 0.6)',
+                    'rgba(100, 159, 64, 0.6)'
+                ],
+                borderColor: 'rgba(0, 0, 0, 0.8)',
+                borderWidth: 1
+            }]
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Yüzde (%)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Yatırım Seçenekleri'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        };
+        new Chart(ctx, config);
     </script>
+    <h3 style="text-align:center;">Beklenen Getiri: %{{ expected_yield }}</h3>
+    <div class="pdf-download">
+        <a href="/download_pdf?total_money={{ total_money }}&risk_tolerance={{ risk_tolerance }}&user_vade={{ user_vade }}&time_limit_dfs={{ time_limit_dfs }}" target="_blank">PDF Olarak İndir</a>
+    </div>
     {% endif %}
 </body>
 </html>
