@@ -41,7 +41,7 @@ Projeyi çalıştırabilmek için aşağıdaki bileşenlere ihtiyacınız var:
 
 ## Kurulum
 
-1. Depoyu Klonlayın veya İndirin
+### 1. Depoyu Klonlayın veya İndirin
 
 Terminal veya komut satırında aşağıdaki komutu çalıştırın:
 
@@ -49,7 +49,7 @@ bash:
 git clone https://github.com/kullanici_adiniz/yatirim-tavsiye-botu.git
 cd yatirim-tavsiye-botu
 
-2. Sanal Ortam Oluşturun(Opsiyonel)
+### 2. Sanal Ortam Oluşturun(Opsiyonel)
 
 bash:
 python -m venv venv
@@ -62,11 +62,11 @@ source venv/bin/activate
 Windows:
 venv\Scripts\activate
 
-3. Gerekli Paketleri Yükleyin
+### 3. Gerekli Paketleri Yükleyin
 
 pip install Flask pdfkit
 
-4. wkhtmltopdf Kurulumu
+### 4. wkhtmltopdf Kurulumu
 
 Windows:
 wkhtmltopdf indir sayfasından uygun sürümü indirip kurun. Kurulum sırasında app.py içindeki wkhtmltopdf yolunu doğru olarak ayarlamayı unutmayın.
