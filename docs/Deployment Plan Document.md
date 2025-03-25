@@ -116,11 +116,6 @@ PDF Rapor İndirme:
 Hesaplanan sonuçların altında bulunan "PDF Olarak İndir" butonu ile raporu PDF formatında indirebilirsiniz.
 
 
-## Deployement Process
-
-## Overview
-Bu belge, Yatırım Tavsiye Botu projesi için demo sunumu sırasında yapılan son yapılandırma ayarlarını içermektedir. Bu ayarlar, uygulamanın doğru ve sorunsuz çalışmasını sağlamak amacıyla gerçekleştirilmiştir.
-
 ----------------------------------------------------------------------
 ## Flask Yapılandırması
 ----------------------------------------------------------------------
