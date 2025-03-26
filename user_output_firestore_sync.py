@@ -19,7 +19,7 @@ def connect_to_mysql():
         conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="b4Cd0_0R_/Syl3*@1nC3",
+            password="password",
             database="main"
         )
         return conn if conn.is_connected() else None
